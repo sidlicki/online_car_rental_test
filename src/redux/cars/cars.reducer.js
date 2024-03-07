@@ -6,7 +6,6 @@ const initialState = {
   favorites: [],
   isLoading: false,
   error: null,
-  reducers: {},
 };
 
 const carsSlice = createSlice({

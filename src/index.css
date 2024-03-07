@@ -5,11 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: linear-gradient(
-    to bottom,
-    rgba(85, 172, 248, 0.4),
-    rgba(255, 255, 255, 0.05)
-  );
+  background: rgba(168, 250, 253, 0.26);
   background-repeat: no-repeat;
   height: 100vh;
 }
@@ -22,4 +18,29 @@ code {
 /* Додаткові стилі для кращого вигляду скролбара */
 ::-webkit-scrollbar {
   display: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+a {
+  text-decoration: none;
+}
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+img {
+  display: block;
+}
+button {
+  cursor: pointer;
 }
