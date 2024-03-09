@@ -36,7 +36,30 @@ export const Modal = () => {
     <Overlay onClick={handleOverlayClick}>
       <div className="modal">
         <button onClick={() => dispatch(closeModal())}>❌</button>
-        <p>{modalData.make}</p>
+
+        <img src={modalData.img} alt={modalData.make} />
+        <p>
+          {modalData.make} {modalData.model} {modalData.year}
+        </p>
+        <div>
+          <ul>
+            <li>{modalData.address.split(',')[1]}</li>
+            <li>{modalData.address.split(',')[2]}</li>
+            <li>{modalData.rentalCompany}</li>
+            <li>{modalData.type}</li>
+            <li>{modalData.model}</li>
+            <li>{modalData.mileage}</li>
+            <li>{modalData.accessories[0]}</li>
+          </ul>
+          <p>{modalData.description}</p>
+          <p>
+            {modalData.accessories
+              .concat(modalData.functionalities)
+              .join(' | ')}
+          </p>
+          <p>Milleage: {modalData.mileage}</p>
+          <p>Price: {modalData.rentalPrice}</p>
+        </div>
       </div>
     </Overlay>
   );

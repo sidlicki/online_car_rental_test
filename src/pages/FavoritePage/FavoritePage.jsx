@@ -9,7 +9,10 @@ const FavoritePage = () => {
   return (
     <>
       <h1>FavoritePage</h1>
-      <CarList cars={favoritesCars}></CarList>
+      <CarList
+        key={JSON.stringify(favoritesCars)}
+        cars={favoritesCars}
+      ></CarList>
     </>
   );
 };

@@ -12,7 +12,6 @@ export const Overlay = styled.div`
     max-width: 450px;
     width: 100%;
     min-height: 300px;
-    background-color: rgb(212, 255, 255);
     border-radius: 10px;
     position: absolute;
     left: 50%;
