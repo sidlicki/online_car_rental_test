@@ -1,7 +1,27 @@
+import { useDispatch, useSelector } from 'react-redux';
 import { StyledItem } from './CarItem.styled';
+import { selectFavoriteCars } from 'redux/cars/cars.selectors';
+import { addFavorite, removeFavorite } from 'redux/cars/cars.reducer';
+import { openModal } from 'redux/modal/modal.reducer';
 
 export const CarItem = ({ car }) => {
+  const dispatch = useDispatch();
   console.log(car);
+  const favoritesCars = useSelector(selectFavoriteCars);
+
+  const handleFavoriteClick = item => {
+    const isFavorite = favoritesCars.some(fav => fav.id === item.id);
+    if (isFavorite) {
+      dispatch(removeFavorite(item));
+      return;
+    }
+    dispatch(addFavorite(item));
+  };
+
+  const handleOpenModal = item => {
+    dispatch(openModal(item));
+  };
+
   return (
     <StyledItem>
       <img className="img" src={car.img} alt={car.description} />
@@ -22,7 +42,12 @@ export const CarItem = ({ car }) => {
           <li>{car.accessories[0]}</li>
         </ul>
       </div>
-      <button> learn more</button>
+      <button type="button" onClick={() => handleOpenModal(car)}>
+        learn more
+      </button>
+      <button type="button" onClick={() => handleFavoriteClick(car)}>
+        add to favorite
+      </button>
     </StyledItem>
   );
 };

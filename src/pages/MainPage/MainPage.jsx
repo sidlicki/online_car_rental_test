@@ -5,6 +5,7 @@ import { selectCars } from 'redux/cars/cars.selectors';
 
 const MainPage = () => {
   const allCars = useSelector(selectCars);
+
   return (
     <>
       <h1>MainPage</h1>

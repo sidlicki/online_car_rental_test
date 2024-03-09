@@ -11,7 +11,20 @@ const initialState = {
 const carsSlice = createSlice({
   name: 'cars',
   initialState,
-  reducers: {},
+  reducers: {
+    addFavorite: (state, action) => {
+      state.isLoading = true;
+      state.favorites.push(action.payload);
+      state.isLoading = false;
+    },
+    removeFavorite: (state, action) => {
+      state.isLoading = true;
+      state.favorites = state.favorites.filter(
+        item => item.id !== action.payload.id
+      );
+      state.isLoading = false;
+    },
+  },
   extraReducers: builder =>
     builder
       .addCase(getAllCars.fulfilled, (state, { payload }) => {
@@ -30,3 +43,4 @@ const carsSlice = createSlice({
 
 // Генератори екшн-креаторс
 export const carsReducer = carsSlice.reducer;
+export const { addFavorite, removeFavorite } = carsSlice.actions;
