@@ -17,7 +17,7 @@ import { modalReducer } from './modal/modal.reducer';
 const carsConfig = {
   key: 'cars',
   storage,
-  whitelist: ['favorites'],
+  whitelist: ['favorites', 'cars'],
 };
 
 export const store = configureStore({

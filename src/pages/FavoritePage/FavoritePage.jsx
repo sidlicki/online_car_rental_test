@@ -8,7 +8,6 @@ const FavoritePage = () => {
 
   return (
     <>
-      <h1>FavoritePage</h1>
       <CarList
         key={JSON.stringify(favoritesCars)}
         cars={favoritesCars}

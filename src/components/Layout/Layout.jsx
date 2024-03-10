@@ -1,10 +1,11 @@
 import { NavLink } from 'react-router-dom';
 import React from 'react';
 import { Container } from 'components/Container/Container';
+import { LayoutStyled } from './Layout.styled';
 
 const Layout = ({ children }) => {
   return (
-    <div>
+    <LayoutStyled>
       <header>
         <Container>
           <NavLink to="/">Home</NavLink>
@@ -15,7 +16,7 @@ const Layout = ({ children }) => {
       <main>
         <Container>{children}</Container>
       </main>
-    </div>
+    </LayoutStyled>
   );
 };
 

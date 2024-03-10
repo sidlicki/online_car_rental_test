@@ -5,7 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: rgba(168, 250, 253, 0.26);
+  background: rgba(255, 255, 255, 0.932);
   background-repeat: no-repeat;
   height: 100vh;
 }
@@ -43,27 +43,4 @@ img {
 }
 button {
   cursor: pointer;
-}
-
-@font-face {
-  font-family: 'Manrope-400';
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-  src: url('./fonts/manrope-regular.ttf') format('truetype');
-}
-@font-face {
-  font-family: 'Manrope-500';
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-  src: url('./fonts/manrope-medium.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'Manrope-600';
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-  src: url('./fonts/manrope-semibold.ttf') format('truetype');
 }

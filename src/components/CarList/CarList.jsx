@@ -3,6 +3,7 @@ import { CarItem } from 'components/CarItem/CarItem';
 import { Modal } from 'components/Modal/Modal';
 import { useSelector } from 'react-redux';
 import { selectIsOpenModal } from 'redux/modal/modal.selectors';
+import { NotFoundDiv, StyledWrapper } from './CarList.styled';
 
 const carBrands = [
   'Buick',
@@ -75,63 +76,73 @@ export const CarList = ({ cars }) => {
   };
 
   return (
-    <>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>
-            Марка:
-            <select
-              value={filters.make}
-              onChange={e => handleFilterChange('make', e.target.value)}
-            >
-              <option value="">Оберіть марку</option>
-              {carBrands.map(brand => (
-                <option key={brand} value={brand}>
-                  {brand}
-                </option>
-              ))}
-            </select>
-          </label>
-
-          <label>
-            Максимальна ціна:
-            <select
-              value={filters.maxPrice}
-              onChange={e => handleFilterChange('maxPrice', e.target.value)}
-            >
-              <option value="">Оберіть максимальну ціну</option>
-              {[...Array(10).keys()].map(price => (
-                <option key={price + 1} value={(price + 1) * 10}>
-                  {(price + 1) * 10}
-                </option>
-              ))}
-            </select>
-          </label>
-          <label>
-            Мінімальний пробіг:
+    <StyledWrapper>
+      <form className="form" onSubmit={handleSubmit}>
+        <label className="label">
+          Car brand
+          <select
+            className="select-brand"
+            value={filters.make}
+            onChange={e => handleFilterChange('make', e.target.value)}
+          >
+            <option value="">Select a brand</option>
+            {carBrands.map(brand => (
+              <option key={brand} value={brand}>
+                {brand}
+              </option>
+            ))}
+          </select>
+        </label>
+        <label className="label">
+          Price/ 1 hour
+          <select
+            className="select-price"
+            value={filters.maxPrice}
+            onChange={e => handleFilterChange('maxPrice', e.target.value)}
+          >
+            <option value="">To $</option>
+            {[...Array(10).keys()].map(price => (
+              <option key={price + 1} value={(price + 1) * 10}>
+                {(price + 1) * 10}
+              </option>
+            ))}
+          </select>
+        </label>
+        <label className="label">
+          Сar mileage / km
+          <div className="inputsMillage">
             <input
+              className="inputMillageLeft"
               type="number"
+              placeholder="From"
               value={filters.minMileage}
               onChange={e => handleFilterChange('minMileage', e.target.value)}
             />
-          </label>
-          <label>
-            Максимальний пробіг:
             <input
+              className="inputMillageRight"
               type="number"
+              placeholder="To"
               value={filters.maxMileage}
               onChange={e => handleFilterChange('maxMileage', e.target.value)}
             />
-          </label>
-        </div>
-        <button type="submit">Пошук</button>
+          </div>
+        </label>
+
+        <button className="btnSearch" type="submit">
+          Search
+        </button>
       </form>
-      <ul>
-        {filteredCars.map(car => {
-          return <CarItem key={car.id} car={car} />;
-        })}
-      </ul>
+      {filteredCars.length > 0 ? (
+        <ul className="list">
+          {filteredCars.map(car => {
+            return <CarItem key={car.id} car={car} />;
+          })}
+        </ul>
+      ) : (
+        <NotFoundDiv>Unfortunately, nothing was found</NotFoundDiv>
+      )}
+
       {isModalOpen && <Modal />}
-    </>
+    </StyledWrapper>
   );
 };
