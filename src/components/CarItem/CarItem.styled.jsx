@@ -77,6 +77,7 @@ export const StyledItem = styled.li`
     // line-height: 20px;
     line-height: 1.42857;
     color: #fff;
+    transition: all 0.3s ease;
     &:hover {
       background: #0b44cd;
     }
@@ -87,5 +88,9 @@ export const StyledItem = styled.li`
     position: absolute;
     top: 16px;
     right: 16px;
+
+    &:hover svg {
+      fill: #0b44cd;
+    }
   }
 `;

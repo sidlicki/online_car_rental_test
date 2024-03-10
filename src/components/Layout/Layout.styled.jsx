@@ -19,13 +19,17 @@ export const LayoutStyled = styled.div`
       background: linear-gradient(to top, #3470ff 10%, #ffffff 90%);
       padding: 5px 10px;
       border-radius: 20px;
+      transition: all 0.3s ease;
+
       &:active {
+        background: linear-gradient(to top, #3470ff 50%, #ffffff 90%);
+      }
+      &:hover {
         background: linear-gradient(to top, #3470ff 50%, #ffffff 90%);
       }
     }
     a + .active {
       background: linear-gradient(to top, #3470ff 50%, #ffffff 90%);
-      transition: all 0.3s ease;
     }
   }
 `;

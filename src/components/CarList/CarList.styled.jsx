@@ -130,6 +130,8 @@ export const StyledWrapper = styled.div`
     // line-height: 20px;
     line-height: 1.42857;
     color: #fff;
+    transition: all 0.3s ease;
+
     &:hover {
       background: #0b44cd;
     }

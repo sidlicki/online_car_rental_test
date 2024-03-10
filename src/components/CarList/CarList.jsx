@@ -31,10 +31,10 @@ const carBrands = [
 export const CarList = ({ cars }) => {
   const isModalOpen = useSelector(selectIsOpenModal);
   const [filters, setFilters] = useState({
-    make: '', // Марка
-    maxPrice: '', // Максимальна ціна
-    minMileage: '', // Мінімальний пробіг
-    maxMileage: '', // Максимальний пробіг
+    make: '',
+    maxPrice: '',
+    minMileage: '',
+    maxMileage: '',
   });
   const [filteredCars, setFilteredCars] = useState(cars);
 
@@ -48,7 +48,6 @@ export const CarList = ({ cars }) => {
   const handleSubmit = e => {
     e.preventDefault();
 
-    // Фільтрація за введеними критеріями
     const filtered = cars.filter(car => {
       if (
         filters.make &&
@@ -71,7 +70,6 @@ export const CarList = ({ cars }) => {
       return true;
     });
 
-    // Оновлення стейту з відфільтрованими автомобілями
     setFilteredCars(filtered);
   };
 
@@ -101,9 +99,9 @@ export const CarList = ({ cars }) => {
             onChange={e => handleFilterChange('maxPrice', e.target.value)}
           >
             <option value="">To $</option>
-            {[...Array(10).keys()].map(price => (
+            {[...Array(15).keys()].map(price => (
               <option key={price + 1} value={(price + 1) * 10}>
-                {(price + 1) * 15}
+                {(price + 1) * 10}
               </option>
             ))}
           </select>
