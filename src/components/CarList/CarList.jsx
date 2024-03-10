@@ -103,7 +103,7 @@ export const CarList = ({ cars }) => {
             <option value="">To $</option>
             {[...Array(10).keys()].map(price => (
               <option key={price + 1} value={(price + 1) * 10}>
-                {(price + 1) * 10}
+                {(price + 1) * 15}
               </option>
             ))}
           </select>
